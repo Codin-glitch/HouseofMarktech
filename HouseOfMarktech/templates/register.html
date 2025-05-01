@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../statics/register.css">
+</head>
+<body>
+    <div class="container">
+    <form action = "{{url_for('register')}}" method="post">
+        <table>
+            <th colspan="2">Registration</th>
+            <tr>
+              <td>Name:</td>
+              <td><input type="text" name="name" placeholder="Enter name"></td>
+            </tr>
+            <tr>
+              <td>Username:</td>
+              <td><input type="text" name="usr" placeholder="Enter username"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" name="pwd" placeholder="Enter password"></td>
+            </tr>
+            <tr>
+              <td>Re-enter password:</td>
+              <td><input type="password" name="pwd2" placeholder="Enter password"></td>
+            </tr>
+          </table>
+          
+        <button type="submit">Register</button>
+        <h3 style="color: red; padding-top: 200px;">{{message}}</h3>
+    </form>
+    <form action = "{{url_for('home')}}" method="GET">
+        <button class = "exit" type="submit" >Go back</button>
+    </form>
+    </div>
+
+    
+    
+</body>
+</html>

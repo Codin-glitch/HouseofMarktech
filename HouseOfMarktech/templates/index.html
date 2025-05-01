@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Page</title>
+    <link rel="stylesheet" href="../statics/style.css">
+</head>
+<body>
+    <div class="welcome">
+        <h3>To-Do App</h3>
+    </div>
+    <div class = "container">
+        <form action="{{url_for('register')}}">
+            <button type="submit">Register</button>
+
+        </form>
+        
+        <form action="{{url_for('login')}}">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

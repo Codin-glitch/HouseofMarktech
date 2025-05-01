@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="../statics/main.css">
+</head>
+<body>
+    <h1>Welcome to Your To-Do List</h1>
+
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label for="title">Task Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="description">Task Description (optional):</label>
+        <textarea id="description" name="description"></textarea>
+        <br>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Your Tasks:</h2>
+    <ol>
+        {% for task in tasks %}
+        <li>
+            <form method="POST" action="{{ url_for('update_task', task_id=task[0]) }}">
+                <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task[4] %}checked{% endif %}>
+                {{task[2]}} : {{task[3]}}
+                <input type="hidden" name="task_id" value=task[0]>
+            </form>
+            <br>
+            <form method="POST" action="{{ url_for('delete_task',  task_id=task[0])}}" >
+                <input type="hidden" name="task_id2" value=task[0]>
+                <button type="submit">Delete</button>
+            </form>
+            
+              
+        </li>
+        {% endfor %}
+    </ol>
+    <form action="{{url_for('login')}}" methods = "GET">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
